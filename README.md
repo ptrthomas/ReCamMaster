@@ -5,7 +5,7 @@
 <img src=https://github.com/user-attachments/assets/b8838e70-4341-489f-97ea-8f70aadc60c3 width="30%"/>
 </div>
 
-### [<a href="https://arxiv.org/" target="_blank">arXiv</a>] [<a href="https://jianhongbai.github.io/ReCamMaster/" target="_blank">Project Page</a>]
+### [<a href="https://drive.google.com/file/d/1UiJ8Yaf_GxvWvVZEmv9YaUDkKK8EaHQk/view?usp=sharing" target="_blank">Paper</a>] [<a href="https://arxiv.org/" target="_blank">arXiv</a>] [<a href="https://jianhongbai.github.io/ReCamMaster/" target="_blank">Project Page</a>]
 _**[Jianhong Bai<sup>1*</sup>](https://jianhongbai.github.io/), [Menghan Xia<sup>2†</sup>](https://menghanxia.github.io/), [Xiao Fu<sup>3</sup>](https://fuxiao0719.github.io/), [Xintao Wang<sup>2</sup>](https://xinntao.github.io/), [Lianrui Mu<sup>1</sup>](https://scholar.google.com/citations?user=dCik-2YAAAAJ&hl=en), [Jinwen Cao<sup>2</sup>](https://openreview.net/profile?id=~Jinwen_Cao1), <br>[Zuozhu Liu<sup>1</sup>](https://person.zju.edu.cn/en/lzz), [Haoji Hu<sup>1†</sup>](https://person.zju.edu.cn/en/huhaoji), [Xiang Bai<sup>4</sup>](https://scholar.google.com/citations?user=UeltiQ4AAAAJ&hl=en), [Pengfei Wan<sup>2</sup>](https://scholar.google.com/citations?user=P6MraaYAAAAJ&hl=en), [Di Zhang<sup>2</sup>](https://openreview.net/profile?id=~Di_ZHANG3)**_
 <br>
 (*Work done during an internship at KwaiVGI, Kuaishou Technology †corresponding authors)
