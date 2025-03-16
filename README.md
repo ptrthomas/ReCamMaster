@@ -32,8 +32,8 @@ You can try out our ReCamMaster by uploading your own video to [this link](https
 | 4 | Tilt Down                   |
 | 5 | Zoom In                     |
 | 6 | Zoom Out                    |
-| 7 | Translation Up (with rotation)   |
-| 8 | Translation Down (with rotation) |
+| 7 | Translate Up (with rotation)   |
+| 8 | Translate Down (with rotation) |
 | 9 | Arc Left (with rotation)    |
 | 10 | Arc Right (with rotation)   |
 
