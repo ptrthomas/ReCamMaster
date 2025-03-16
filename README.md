@@ -2,7 +2,7 @@
 
 <div align="center">
 <div align="center" style="margin-top: 0px; margin-bottom: 0px;">
-<img src=https://github.com/user-attachments/assets/b8838e70-4341-489f-97ea-8f70aadc60c3 width="30%"/>
+<img src=https://github.com/user-attachments/assets/81ccf80e-f4b6-4a3d-b47a-e9c2ce14e34f width="30%"/>
 </div>
 
 ### [<a href="https://drive.google.com/file/d/1UiJ8Yaf_GxvWvVZEmv9YaUDkKK8EaHQk/view?usp=sharing" target="_blank">Paper</a>] [<a href="https://arxiv.org/" target="_blank">arXiv</a>] [<a href="https://jianhongbai.github.io/ReCamMaster/" target="_blank">Project Page</a>]
@@ -19,6 +19,7 @@ _**[Jianhong Bai<sup>1*</sup>](https://jianhongbai.github.io/), [Menghan Xia<sup
 **TL;DR:** We propose ReCamMaster to re-capture in-the-wild videos with novel camera trajectories.  <br>
 
 https://github.com/user-attachments/assets/7bd67e50-9c97-4d39-9e10-5cb4369e762d
+
 
 ## 🚀 Try ReCamMaster with Your Own Videos
 
