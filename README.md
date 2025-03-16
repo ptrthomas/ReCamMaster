@@ -18,7 +18,7 @@ _**[Jianhong Bai<sup>1*</sup>](https://jianhongbai.github.io/), [Menghan Xia<sup
 
 **TL;DR:** We propose ReCamMaster to re-capture in-the-wild videos with novel camera trajectories.  <br>
 
-https://github.com/user-attachments/assets/7bd67e50-9c97-4d39-9e10-5cb4369e762d
+https://github.com/user-attachments/assets/52455e86-1adb-458d-bc37-4540a65a60d4
 
 <video muted autoplay="autoplay" loop="loop" width="100%" preload controls poster="./videos/ReCamMaster/TEASER.jpg">
   <source src="./TEASER_compressed.mp4" type="video/mp4">
