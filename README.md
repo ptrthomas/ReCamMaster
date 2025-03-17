@@ -5,7 +5,7 @@
 <img src=https://github.com/user-attachments/assets/81ccf80e-f4b6-4a3d-b47a-e9c2ce14e34f width="30%"/>
 </div>
 
-### [<a href="https://drive.google.com/file/d/1UiJ8Yaf_GxvWvVZEmv9YaUDkKK8EaHQk/view?usp=sharing" target="_blank">Paper</a>] [<a href="https://arxiv.org/" target="_blank">arXiv</a>] [<a href="https://jianhongbai.github.io/ReCamMaster/" target="_blank">Project Page</a>]
+### [<a href="https://drive.google.com/file/d/1UiJ8Yaf_GxvWvVZEmv9YaUDkKK8EaHQk/view?usp=sharing" target="_blank">Paper</a>] [<a href="https://arxiv.org/abs/2503.11647" target="_blank">arXiv</a>] [<a href="https://jianhongbai.github.io/ReCamMaster/" target="_blank">Project Page</a>]
 _**[Jianhong Bai<sup>1*</sup>](https://jianhongbai.github.io/), [Menghan Xia<sup>2†</sup>](https://menghanxia.github.io/), [Xiao Fu<sup>3</sup>](https://fuxiao0719.github.io/), [Xintao Wang<sup>2</sup>](https://xinntao.github.io/), [Lianrui Mu<sup>1</sup>](https://scholar.google.com/citations?user=dCik-2YAAAAJ&hl=en), [Jinwen Cao<sup>2</sup>](https://openreview.net/profile?id=~Jinwen_Cao1), <br>[Zuozhu Liu<sup>1</sup>](https://person.zju.edu.cn/en/lzz), [Haoji Hu<sup>1†</sup>](https://person.zju.edu.cn/en/huhaoji), [Xiang Bai<sup>4</sup>](https://scholar.google.com/citations?user=UeltiQ4AAAAJ&hl=en), [Pengfei Wan<sup>2</sup>](https://scholar.google.com/citations?user=P6MraaYAAAAJ&hl=en), [Di Zhang<sup>2</sup>](https://openreview.net/profile?id=~Di_ZHANG3)**_
 <br>
 (*Work done during an internship at KwaiVGI, Kuaishou Technology †corresponding authors)
@@ -19,10 +19,6 @@ _**[Jianhong Bai<sup>1*</sup>](https://jianhongbai.github.io/), [Menghan Xia<sup
 **TL;DR:** We propose ReCamMaster to re-capture in-the-wild videos with novel camera trajectories.  <br>
 
 https://github.com/user-attachments/assets/52455e86-1adb-458d-bc37-4540a65a60d4
-
-<video muted autoplay="autoplay" loop="loop" width="100%" preload controls poster="./videos/ReCamMaster/TEASER.jpg">
-  <source src="./TEASER_compressed.mp4" type="video/mp4">
-</video>
 
 ## 🚀 Try ReCamMaster with Your Own Videos
 
