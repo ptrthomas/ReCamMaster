@@ -46,6 +46,8 @@ Feel free to explore these outstanding related works, including but not limited 
 
 [GCD](https://gcd.cs.columbia.edu/): GCD synthesize large-angle novel viewpoints of 4D dynamic scenes from a monocular video.
 
+[ReCapture](https://generative-video-camera-controls.github.io/): a method for generating new videos with novel camera trajectories from a single user-provided video.
+
 [Trajectory Attention](https://xizaoqu.github.io/trajattn/): Trajectory Attention facilitates various tasks like camera motion control on images and videos, and video editing.
 
 [GS-DiT](https://wkbian.github.io/Projects/GS-DiT/): GS-DiT provides 4D video control for a single monocular video.
