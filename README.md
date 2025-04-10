@@ -24,7 +24,7 @@ _**[Jianhong Bai<sup>1*</sup>](https://jianhongbai.github.io/), [Menghan Xia<sup
   
 ## 📖 Introduction
 
-**TL;DR:** We propose ReCamMaster to re-capture in-the-wild videos with novel camera trajectories.  <br>
+**TL;DR:** We propose ReCamMaster to re-capture in-the-wild videos with novel camera trajectories. We also release a multi-camera synchronized video [dataset](https://huggingface.co/datasets/KwaiVGI/MultiCamVideo-Dataset) rendered with Unreal Engine 5. <br>
 
 https://github.com/user-attachments/assets/52455e86-1adb-458d-bc37-4540a65a60d4
 
@@ -132,7 +132,7 @@ Step 3: Training
 ```shell
 CUDA_VISIBLE_DEVICES="0,1,2,3,4,5,6,7" python train_recammaster.py   --task train  --dataset_path recam_train_data   --output_path ./models/train   --dit_path "models/Wan-AI/Wan2.1-T2V-1.3B/diffusion_pytorch_model.safetensors"   --steps_per_epoch 8000   --max_epochs 100   --learning_rate 1e-4   --accumulate_grad_batches 1   --use_gradient_checkpointing  --dataloader_num_workers 4
 ```
-We do not explore the optimal set of hyper-parameters and trained with a batch size of 1 on each GPU. You may achieve better model performance by adjusting hyper-parameters such as the learning rate and increasing the batch size.
+We do not explore the optimal set of hyper-parameters and train with a batch size of 1 on each GPU. You may achieve better model performance by adjusting hyper-parameters such as the learning rate and increasing the batch size.
 
 Step 4: Test the model
 
@@ -143,11 +143,11 @@ python inference_recammaster.py --cam_type 1 --ckpt_path path/to/the/checkpoint
 ## 📷 Dataset: MultiCamVideo Dataset
 ### 1. Dataset Introduction
 
-**TL;DR:** The MultiCamVideo Dataset is a multi-camera synchronized video dataset rendered using Unreal Engine 5. It includes synchronized multi-camera videos and its corresponding camera trajectories. The MultiCamVideo Dataset can be valuable in fields such as camera-controlled video generation, synchronized video production, and 3D/4D reconstruction.
+**TL;DR:** The MultiCamVideo Dataset is a multi-camera synchronized video dataset rendered using Unreal Engine 5. It includes synchronized multi-camera videos and their corresponding camera trajectories. The MultiCamVideo Dataset can be valuable in fields such as camera-controlled video generation, synchronized video production, and 3D/4D reconstruction.
 
 https://github.com/user-attachments/assets/6fa25bcf-1136-43be-8110-b527638874d4
 
-The MultiCamVideo Dataset is a multi-camera synchronized video dataset rendered using Unreal Engine 5. It includes synchronized multi-camera videos and its corresponding camera trajectories.
+The MultiCamVideo Dataset is a multi-camera synchronized video dataset rendered using Unreal Engine 5. It includes synchronized multi-camera videos and their corresponding camera trajectories.
 It consists of 13.6K different dynamic scenes, each captured by 10 cameras, resulting in a total of 136K videos. Each dynamic scene is composed of four elements: {3D environment, character, animation, camera}. Specifically, we use animation to drive the character, 
 and position the animated character within the 3D environment. Then, Time-synchronized cameras are set up to move along predefined trajectories to render the multi-camera video data.
 <p align="center">
@@ -158,7 +158,7 @@ and position the animated character within the 3D environment. Then, Time-synchr
 
 **Character:** We collect 66 different human 3D models as characters from [Fab](https://www.fab.com) and [Mixamo](https://www.mixamo.com).
 
-**Animation:** We collect 93 different animations from [Fab](https://www.fab.com) and [Mixamo](https://www.mixamo.com), including common actions such as waving, dancing, and cheering. We use these animations to drive the collected characters and created diverse datasets through various combinations.
+**Animation:** We collect 93 different animations from [Fab](https://www.fab.com) and [Mixamo](https://www.mixamo.com), including common actions such as waving, dancing, and cheering. We use these animations to drive the collected characters and create diverse datasets through various combinations.
 
 **Camera:** To ensure camera movements are diverse and closely resemble real-world distributions, we create a wide range of camera trajectories and parameters to cover various situations. To achieve this by designing rules to batch-generate random camera starting positions and movement trajectories:
 
@@ -277,7 +277,7 @@ The visualization script is modified from [CameraCtrl](https://github.com/hehao1
 ## 🤗 Awesome Related Works
 Feel free to explore these outstanding related works, including but not limited to:
 
-[GCD](https://gcd.cs.columbia.edu/): GCD synthesize large-angle novel viewpoints of 4D dynamic scenes from a monocular video.
+[GCD](https://gcd.cs.columbia.edu/): GCD synthesizes large-angle novel viewpoints of 4D dynamic scenes from a monocular video.
 
 [ReCapture](https://generative-video-camera-controls.github.io/): a method for generating new videos with novel camera trajectories from a single user-provided video.
 
