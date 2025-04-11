@@ -17,10 +17,13 @@ _**[Jianhong Bai<sup>1*</sup>](https://jianhongbai.github.io/), [Menghan Xia<sup
 **Important Note:** This open-source repository is intended to provide a reference implementation. Due to the difference in the underlying T2V model's performance, the open-source version may not achieve the same performance as the model in our paper. If you'd like to use the best version of ReCamMaster, please upload your video to [this link](https://docs.google.com/forms/d/e/1FAIpQLSezOzGPbm8JMXQDq6EINiDf6iXn7rV4ozj6KcbQCSAzE8Vsnw/viewform?usp=dialog). Additionally, we are working on developing an online trial website. Please stay tuned to updates on the [Kling website](https://app.klingai.com/global/).
 
 ## 🔥 Updates
-- __[2024.03.17]__: Release the [project page](https://jianhongbai.github.io/ReCamMaster/) and the [try out link](https://docs.google.com/forms/d/e/1FAIpQLSezOzGPbm8JMXQDq6EINiDf6iXn7rV4ozj6KcbQCSAzE8Vsnw/viewform?usp=dialog).
+- __[2024.04.09]__: Release the [training and inference code](https://github.com/KwaiVGI/ReCamMaster/edit/main/README.md#%EF%B8%8F-code-recammaster--wan21-inference--training), [model checkpoint](https://huggingface.co/KwaiVGI/ReCamMaster-Wan2.1/blob/main/step20000.ckpt).
 - __[2024.03.31]__: Release the [MultiCamVideo Dataset](https://huggingface.co/datasets/KwaiVGI/MultiCamVideo-Dataset).
 - __[2024.03.31]__: We have sent the inference results to the first 1000 trial users.
-- __[2024.04.09]__: Release the [training and inference code](https://github.com/KwaiVGI/ReCamMaster/edit/main/README.md#%EF%B8%8F-code-recammaster--wan21-inference--training), [model checkpoint](https://huggingface.co/KwaiVGI/ReCamMaster-Wan2.1/blob/main/step20000.ckpt).
+- __[2024.03.17]__: Release the [project page](https://jianhongbai.github.io/ReCamMaster/) and the [try out link](https://docs.google.com/forms/d/e/1FAIpQLSezOzGPbm8JMXQDq6EINiDf6iXn7rV4ozj6KcbQCSAzE8Vsnw/viewform?usp=dialog).
+
+
+
   
 ## 📖 Introduction
 
