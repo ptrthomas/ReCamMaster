@@ -28,7 +28,7 @@ _**[Jianhong Bai<sup>1*</sup>](https://jianhongbai.github.io/), [Menghan Xia<sup
   
 ## 📖 Introduction
 
-**TL;DR:** We propose ReCamMaster to re-capture in-the-wild videos with novel camera trajectories. We also release a multi-camera synchronized video [dataset](https://huggingface.co/datasets/KwaiVGI/MultiCamVideo-Dataset) rendered with Unreal Engine 5. <br>
+**TL;DR:** We propose ReCamMaster to re-capture in-the-wild videos with novel camera trajectories, achieved through our proposed simple-and-effective video conditioning scheme. We also release a multi-camera synchronized video [dataset](https://huggingface.co/datasets/KwaiVGI/MultiCamVideo-Dataset) rendered with Unreal Engine 5. <br>
 
 https://github.com/user-attachments/assets/52455e86-1adb-458d-bc37-4540a65a60d4
 
