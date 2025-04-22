@@ -18,7 +18,7 @@ class Camera(object):
         self.w2c_mat = np.linalg.inv(c2w_mat)
 
 class TextVideoCameraDataset(torch.utils.data.Dataset):
-    def __init__(self, base_path, metadata_path, args, max_num_frames=81, frame_interval=1, num_frames=81, height=480, width=832, is_i2v=False):
+    def __init__(self, base_path, metadata_path, args, max_num_frames=1600, frame_interval=1, num_frames=81, height=480, width=832, is_i2v=False):
         metadata = pd.read_csv(metadata_path)
         self.path = [os.path.join(base_path, "videos", file_name) for file_name in metadata["file_name"]]
         self.text = metadata["text"].to_list()
@@ -86,8 +86,34 @@ class TextVideoCameraDataset(torch.utils.data.Dataset):
     
 
     def load_video(self, file_path):
-        start_frame_id = torch.randint(0, self.max_num_frames - (self.num_frames - 1) * self.frame_interval, (1,))[0]
-        frames = self.load_frames_using_imageio(file_path, self.max_num_frames, start_frame_id, self.frame_interval, self.num_frames, self.frame_process)
+        reader = imageio.get_reader(file_path)
+        total_frames = reader.count_frames()
+        
+        # Calculate sampling interval to get expected number of frames
+        interval = max(1, total_frames // self.num_frames)
+        
+        frames = []
+        for i in range(0, min(total_frames, self.num_frames * interval), interval):
+            try:
+                frame = reader.get_data(i)
+                frame = Image.fromarray(frame)
+                frame = self.crop_and_resize(frame)
+                frame = self.frame_process(frame)
+                frames.append(frame)
+            except:
+                break
+        reader.close()
+        
+        # If we didn't get enough frames, repeat the last frame
+        while len(frames) < self.num_frames:
+            frames.append(frames[-1])
+        
+        # If we got too many frames, truncate
+        frames = frames[:self.num_frames]
+        
+        frames = torch.stack(frames, dim=0)
+        frames = rearrange(frames, "T C H W -> C T H W")
+        
         return frames
 
 
@@ -124,7 +150,7 @@ class TextVideoCameraDataset(torch.utils.data.Dataset):
         if video is None:
             raise ValueError(f"{path} is not a valid video.")
         num_frames = video.shape[1]
-        assert num_frames == 81
+        # assert num_frames == 81
         data = {"text": text, "video": video, "path": path}
 
         # load camera
@@ -132,8 +158,25 @@ class TextVideoCameraDataset(torch.utils.data.Dataset):
         with open(tgt_camera_path, 'r') as file:
             cam_data = json.load(file)
 
-        cam_idx = list(range(num_frames))[::4]
-        traj = [self.parse_matrix(cam_data[f"frame{idx}"][f"cam{int(self.cam_type):02d}"]) for idx in cam_idx]
+        # cam_idx = list(range(num_frames))[::4]
+        # traj = [self.parse_matrix(cam_data[f"frame{idx}"][f"cam{int(self.cam_type):02d}"]) for idx in cam_idx]
+
+        # Get the number of frames in the JSON file
+        json_frames = len(cam_data)
+
+        # We want about 21 camera positions (like in the original code that sampled 81/4)
+        target_positions = 21
+        sample_interval = max(1, num_frames // target_positions)
+
+        # Generate camera positions
+        traj = []
+        for i in range(0, num_frames, sample_interval):
+            # Calculate the corresponding frame in the JSON
+            json_frame_idx = min(int(i * json_frames / num_frames), json_frames - 1)
+            
+            # Get camera matrix from JSON
+            traj.append(self.parse_matrix(cam_data[f"frame{json_frame_idx}"][f"cam{int(self.cam_type):02d}"]))
+
         traj = np.stack(traj).transpose(0, 2, 1)
         c2ws = []
         for c2w in traj:
