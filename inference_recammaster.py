@@ -158,38 +158,39 @@ class TextVideoCameraDataset(torch.utils.data.Dataset):
         with open(tgt_camera_path, 'r') as file:
             cam_data = json.load(file)
 
-        # cam_idx = list(range(num_frames))[::4]
-        # traj = [self.parse_matrix(cam_data[f"frame{idx}"][f"cam{int(self.cam_type):02d}"]) for idx in cam_idx]
-
         # Get the number of frames in the JSON file
-        json_frames = len(cam_data)
+        json_frames = len(cam_data)  # Should be 80
 
-        # We want about 21 camera positions (like in the original code that sampled 81/4)
-        target_positions = 21
-        sample_interval = max(1, num_frames // target_positions)
+        # The model expects exactly 21 camera positions (just like the original code)
+        num_positions = 21
+        relative_poses = []
 
-        # Generate camera positions
-        traj = []
-        for i in range(0, num_frames, sample_interval):
-            # Calculate the corresponding frame in the JSON
-            json_frame_idx = min(int(i * json_frames / num_frames), json_frames - 1)
+        # Sample JSON frames evenly
+        for i in range(num_positions):
+            # Calculate the corresponding frame in the JSON (evenly spaced)
+            json_frame_idx = min(int(i * json_frames / num_positions), json_frames - 1)
             
             # Get camera matrix from JSON
-            traj.append(self.parse_matrix(cam_data[f"frame{json_frame_idx}"][f"cam{int(self.cam_type):02d}"]))
-
-        traj = np.stack(traj).transpose(0, 2, 1)
-        c2ws = []
-        for c2w in traj:
-            c2w = c2w[:, [1, 2, 0, 3]]
-            c2w[:3, 1] *= -1.
-            c2w[:3, 3] /= 100
-            c2ws.append(c2w)
-        tgt_cam_params = [Camera(cam_param) for cam_param in c2ws]
-        relative_poses = []
-        for i in range(len(tgt_cam_params)):
-            relative_pose = self.get_relative_pose([tgt_cam_params[0], tgt_cam_params[i]])
+            c2w = self.parse_matrix(cam_data[f"frame{json_frame_idx}"][f"cam{int(self.cam_type):02d}"])
+            
+            # Process as before
+            c2w = c2w.transpose(1, 0)
+            c2w = c2w[[1, 2, 0, 3], :]
+            c2w[0:3, 1] *= -1.
+            c2w[0:3, 3] /= 100
+            
+            cam_param = Camera(c2w)
+            
+            # For the first camera, store it as reference
+            if i == 0:
+                ref_cam_param = cam_param
+            
+            # Calculate relative pose to first camera
+            relative_pose = self.get_relative_pose([ref_cam_param, cam_param])
             relative_poses.append(torch.as_tensor(relative_pose)[:,:3,:][1])
-        pose_embedding = torch.stack(relative_poses, dim=0)  # 21x3x4
+
+        # Ensure exactly 21 positions
+        pose_embedding = torch.stack(relative_poses, dim=0)
         pose_embedding = rearrange(pose_embedding, 'b c d -> b (c d)')
         data['camera'] = pose_embedding.to(torch.bfloat16)
         return data
